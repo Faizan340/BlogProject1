@@ -1,0 +1,82 @@
+{% extends 'adminpanel/base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="h-100">
+    <div class = "container-fluid">
+        <div class = "row" id="main">
+            <div class="col-sm-6 text-black" id="coll">
+                <div class="px-5 ms-xl-4 mt-5">
+                    <i class="fas fa-crow fa-2x me-3 pt-5 mt-xl-4" ></i>
+                    <span class="h1 fw-bold mb-0">Logo</span>
+                </div>
+
+                <div class="d-flex align-items-center h-custom-2 ps-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
+
+
+                    <div class="card-body fs-3" id="cardd" style="font-family:Times">
+                        <form method="POST">
+                            {% csrf_token %}
+                            {{form.as_p}}
+                            <input class="button" type="submit" value="Login">
+                        </form>
+                        <div class='mt-4'>
+                            <a href = "{% url 'mypep:password_reset' %}">Forgot Password</a>
+                            <p>Don't have an account? <a href="{% url 'mypep:signup' %}">Sign Up</a></p>
+                            
+                        </div>
+                    </div>   
+                </div>
+            </div>
+
+
+                <div class="col-sm-6  d-sm-block d-flex align-content-around" id='imge'>
+                    <img src="{% static 'Images/login.jpg.svg' %}"
+                      alt="Login image" class="w-100 vh-100" style="">
+                </div>
+                
+        </div>
+    </div>
+</section>
+
+    <style>
+        input[type=submit]{
+            background-color: #04AA6D;
+            border-radius: 25px;
+            color: white;
+            padding: 16px 32px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+          }
+
+
+          @media screen and (max-width:600px){
+
+            #main{
+                width:100%;
+            }
+            #main #cardd{
+                width:100%;
+                font-size:25px;
+            }
+
+            #main #coll{
+                width:100%;
+            }
+
+            #main #cardd,#imge{
+                width:100%;
+            }
+
+            #main #imge{
+                height:auto;
+            }
+
+            #main #imge img{
+                height:auto;
+            }
+          } 
+    </style>
+
+{% endblock %}

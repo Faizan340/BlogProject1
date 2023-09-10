@@ -1,0 +1,18 @@
+{% extends 'adminpanel/base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/delete.css' %}">
+{% endblock%}
+
+{% block content %}
+
+<div class="container d-flex jutify-content-center my-5 p-5">
+    <form method="post">
+        {% csrf_token %}
+        <h2>Are you sure you want to delete "{{ object }}"?</h2> 
+            <input type="submit" value="Confirm">
+    </form>
+</div>
+
+{% endblock %}
